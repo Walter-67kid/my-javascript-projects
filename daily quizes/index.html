@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quiz - Math, Anatomy & Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Daily Quiz Challenge</h1>
+            <p class="subtitle">Choose a subject to begin!</p>
+        </header>
+
+        <!-- Subject Selection -->
+        <div id="subject-selection" class="card">
+            <h2>Select a Subject</h2>
+            <div class="subjects">
+                <button class="subject-btn" data-subject="math">
+                    <span class="subject-icon">🧮</span>
+                    <span class="subject-label">Math</span>
+                    <span class="subject-desc">Age-based math challenges</span>
+                </button>
+                <button class="subject-btn" data-subject="anatomy">
+                    <span class="subject-icon">🫀</span>
+                    <span class="subject-label">Organ Anatomy</span>
+                    <span class="subject-desc">Human body organ questions</span>
+                </button>
+                <button class="subject-btn" data-subject="space">
+                    <span class="subject-icon">🚀</span>
+                    <span class="subject-label">Space</span>
+                    <span class="subject-desc">Astronomy & space questions</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Math Age Group Selection -->
+        <div id="age-selection" class="card hidden">
+            <h2>Choose Your Age Group</h2>
+            <div class="age-groups">
+                <button class="age-btn" data-age="children">
+                    <span class="age-icon">👶</span>
+                    <span class="age-label">Children</span>
+                    <span class="age-range">Ages 6-10</span>
+                </button>
+                <button class="age-btn" data-age="preteen">
+                    <span class="age-icon">🧒</span>
+                    <span class="age-label">Pre-Teens</span>
+                    <span class="age-range">Ages 11-13</span>
+                </button>
+                <button class="age-btn" data-age="teenager">
+                    <span class="age-icon">👦</span>
+                    <span class="age-label">Teenagers</span>
+                    <span class="age-range">Ages 14-17</span>
+                </button>
+                <button class="age-btn" data-age="adult">
+                    <span class="age-icon">👨</span>
+                    <span class="age-label">Adults</span>
+                    <span class="age-range">Ages 18+</span>
+                </button>
+            </div>
+            <button id="back-to-subjects" class="btn outline">← Back to Subjects</button>
+        </div>
+
+        <!-- Math Quiz Section -->
+        <div id="quiz-section" class="card hidden">
+            <div class="quiz-header">
+                <span id="quiz-type-badge" class="badge"></span>
+                <div class="score-display">
+                    <span>Score: <strong id="score">0</strong></span>
+                    <span>Question: <strong id="question-num">1</strong>/10</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-box">
+                    <span id="question-number">Q1</span>
+                    <p id="question-text">Loading question...</p>
+                </div>
+                
+                <div class="answer-section">
+                    <input type="text" id="answer-input" placeholder="Your answer...">
+                    <button id="submit-btn" class="btn primary">Submit Answer</button>
+                </div>
+                
+                <div id="feedback" class="feedback hidden">
+                    <p id="feedback-text"></p>
+                </div>
+            </div>
+
+            <div class="quiz-actions">
+                <button id="next-btn" class="btn secondary hidden">Next Question</button>
+                <button id="restart-btn" class="btn outline hidden">Try Again</button>
+                <button id="back-btn" class="btn outline hidden">Back to Subjects</button>
+            </div>
+        </div>
+
+        <!-- Anatomy Quiz Section -->
+        <div id="anatomy-quiz-section" class="card hidden">
+            <div class="quiz-header">
+                <span class="badge">🫀 Organ Anatomy</span>
+                <div class="score-display">
+                    <span>Score: <strong id="anatomy-score">0</strong></span>
+                    <span>Question: <strong id="anatomy-question-num">1</strong>/10</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-box">
+                    <span id="anatomy-question-number">Q1</span>
+                    <p id="anatomy-question-text">Loading question...</p>
+                </div>
+                
+                <div class="anatomy-answers" id="anatomy-answers">
+                    <!-- Answer buttons will be generated here -->
+                </div>
+                
+                <div id="anatomy-feedback" class="feedback hidden">
+                    <p id="anatomy-feedback-text"></p>
+                </div>
+            </div>
+
+            <div class="quiz-actions">
+                <button id="anatomy-next-btn" class="btn secondary hidden">Next Question</button>
+                <button id="anatomy-restart-btn" class="btn outline hidden">Try Again</button>
+                <button id="anatomy-back-btn" class="btn outline hidden">Back to Subjects</button>
+            </div>
+        </div>
+
+        <!-- Space Quiz Section -->
+        <div id="space-quiz-section" class="card hidden">
+            <div class="quiz-header">
+                <span class="badge">🚀 Space</span>
+                <div class="score-display">
+                    <span>Score: <strong id="space-score">0</strong></span>
+                    <span>Question: <strong id="space-question-num">1</strong>/10</span>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-box">
+                    <span id="space-question-number">Q1</span>
+                    <p id="space-question-text">Loading question...</p>
+                </div>
+                
+                <div class="anatomy-answers" id="space-answers">
+                    <!-- Answer buttons will be generated here -->
+                </div>
+                
+                <div id="space-feedback" class="feedback hidden">
+                    <p id="space-feedback-text"></p>
+                </div>
+            </div>
+
+            <div class="quiz-actions">
+                <button id="space-next-btn" class="btn secondary hidden">Next Question</button>
+                <button id="space-restart-btn" class="btn outline hidden">Try Again</button>
+                <button id="space-back-btn" class="btn outline hidden">Back to Subjects</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="card hidden">
+            <h2>🎉 Quiz Complete!</h2>
+            <div class="results-content">
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                    <span class="score-total">/10</span>
+                </div>
+                <p id="result-message"></p>
+                <div class="result-stats">
+                    <div class="stat">
+                        <span class="stat-label">Correct</span>
+                        <span id="correct-count" class="stat-value correct">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Wrong</span>
+                        <span id="wrong-count" class="stat-value wrong">0</span>
+                    </div>
+                </div>
+            </div>
+            <button id="new-quiz-btn" class="btn primary">Back to Subjects</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
