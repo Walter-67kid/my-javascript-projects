@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌍 Country Quiz</h1>
+            <p>Test your knowledge about countries around the world!</p>
+        </header>
+
+        <main id="quiz-container">
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <div class="start-content">
+                    <div class="quiz-icon">🌏</div>
+                    <h2>Welcome to the Country Quiz!</h2>
+                    <p>Answer 10 questions about:</p>
+                    <ul class="features-list">
+                        <li>🏛️ Capital Cities</li>
+                        <li>🚩 Country Flags</li>
+                        <li>🗺️ Geography & Continents</li>
+                        <li>👥 Population Comparison</li>
+                    </ul>
+                    <button id="start-btn" class="btn primary-btn">Start Quiz</button>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <div class="quiz-info">
+                    <span id="question-counter">Question 1/10</span>
+                    <span id="score-display">Score: 0</span>
+                </div>
+                
+                <div class="question-container">
+                    <div id="question-type" class="question-type"></div>
+                    <h2 id="question-text"></h2>
+                    <div id="question-media" class="question-media"></div>
+                </div>
+
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="screen">
+                <div class="result-content">
+                    <div id="result-emoji" class="result-emoji"></div>
+                    <h2>Quiz Completed!</h2>
+                    <div class="final-score">
+                        <span id="final-score-text">Your Score</span>
+                        <span id="final-score-value">0/10</span>
+                    </div>
+                    <p id="result-message"></p>
+                    <div class="result-buttons">
+                        <button id="play-again-btn" class="btn primary-btn">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Data provided by REST Countries API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
