@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock - All Countries Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="title-icon">🌍</span>
+                    World Clock
+                </h1>
+                <p class="subtitle">Current time across all countries</p>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search country or city...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="current-time-display">
+                <div class="local-time">
+                    <span class="label">Your Local Time</span>
+                    <span class="time" id="localTime">--:--:--</span>
+                    <span class="date" id="localDate">---</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Africa">Africa</button>
+                    <button class="filter-btn" data-filter="Asia">Asia</button>
+                    <button class="filter-btn" data-filter="Europe">Europe</button>
+                    <button class="filter-btn" data-filter="North America">North America</button>
+                    <button class="filter-btn" data-filter="South America">South America</button>
+                    <button class="filter-btn" data-filter="Oceania">Oceania</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="regions-container" id="regionsContainer">
+                <!-- Countries will be dynamically inserted here -->
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <span class="no-results-icon">🔍</span>
+                <p>No countries found matching your search</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Times are updated in real-time • Data sourced from system clock</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
