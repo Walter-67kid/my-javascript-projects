@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥗 Ultimate Fruits & Vegetables Encyclopedia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">The Ultimate</span>
+                <span class="title-accent">Fruits & Vegetables</span>
+                <span class="title-line">Encyclopedia</span>
+            </h1>
+            <p class="hero-subtitle">Discover the complete guide to nature's most nutritious gifts</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalCount">0</span>
+                    <span class="stat-label">Items</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Fun Facts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Natural</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="controls">
+        <div class="container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for any fruit or vegetable...">
+                <button class="clear-btn" id="clearSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-globe"></i> All
+                </button>
+                <button class="filter-btn" data-filter="fruit">
+                    <i class="fas fa-apple-alt"></i> Fruits
+                </button>
+                <button class="filter-btn" data-filter="vegetable">
+                    <i class="fas fa-carrot"></i> Vegetables
+                </button>
+                <button class="filter-btn" data-filter="tropical">
+                    <i class="fas fa-mountain"></i> Tropical
+                </button>
+            </div>
+            <div class="view-options">
+                <button class="view-btn active" data-view="grid">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="view-btn" data-view="list">
+                    <i class="fas fa-list"></i>
+                </button>
+                <select id="sortSelect" class="sort-select">
+                    <option value="name">Sort by Name</option>
+                    <option value="calories-low">Calories (Low to High)</option>
+                    <option value="calories-high">Calories (High to Low)</option>
+                    <option value="vitamin-c">Vitamin C Content</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Info -->
+    <section class="results-info">
+        <div class="container">
+            <p>Showing <span id="showingCount">0</span> of <span id="totalItems">0</span> items</p>
+        </div>
+    </section>
+
+    <!-- Items Grid -->
+    <main class="items-container">
+        <div class="container">
+            <div class="items-grid" id="itemsGrid">
+                <!-- Items will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Quick Facts Section -->
+    <section class="quick-facts">
+        <div class="container">
+            <h2 class="section-title">
+                <span><i class="fas fa-lightbulb"></i> Quick Facts</span>
+            </h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Hydration</h3>
+                    <p>Watermelon is 92% water, making it one of the most hydrating foods</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Metabolism</h3>
+                    <p>Spicy peppers can boost metabolism by up to 25%</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Brain Health</h3>
+                    <p>Blueberries are proven to improve memory and cognitive function</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Heart Health</h3>
+                    <p>Avocados can help reduce bad cholesterol levels</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Vision</h3>
+                    <p>Carrots contain beta-carotene which converts to Vitamin A for eye health</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Immunity</h3>
+                    <p>Oranges provide 100% of daily Vitamin C needs in one fruit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 id="modalTitle">Item Name</h2>
+                <span class="modal-category" id="modalCategory">Category</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                    <p id="modalOverview">Description</p>
+                </div>
+                <div class="modal-grid">
+                    <div class="modal-card">
+                        <h4><i class="fas fa-chart-pie"></i> Nutritional Values</h4>
+                        <ul id="modalNutrition"></ul>
+                    </div>
+                    <div class="modal-card">
+                        <h4><i class="fas fa-heartbeat"></i> Health Benefits</h4>
+                        <ul id="modalBenefits"></ul>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-calendar-alt"></i> Seasons & Origin</h3>
+                    <p id="modalSeason"></p>
+                </div>
+                <div class="modal-section fun-facts-section">
+                    <h3><i class="fas fa-star"></i> Fun Facts</h3>
+                    <ul id="modalFunFacts"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-utensils"></i> Culinary Uses</h3>
+                    <p id="modalCulinary"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Fruits & Vegetables Encyclopedia</span>
+                </div>
+                <p class="footer-text">Your ultimate guide to nature's most nutritious foods</p>
+                <div class="footer-stats">
+                    <span><i class="fas fa-apple-alt"></i> <span id="footerFruits">0</span> Fruits</span>
+                    <span><i class="fas fa-carrot"></i> <span id="footerVeggies">0</span> Vegetables</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with <i class="fas fa-heart"></i> for healthy living</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
