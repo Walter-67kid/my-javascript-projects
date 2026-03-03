@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gifts of the Holy Spirit | Divine Gifts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-dove">🕊️</div>
+            <div class="loader-text">Loading Divine Gifts...</div>
+            <div class="loader-flame">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="dove-container">
+                <svg class="dove" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path class="dove-body" d="M50 20 C30 25 15 40 10 60 C8 70 12 80 25 85 C35 88 45 85 55 75 C65 65 70 50 75 35 C78 28 85 25 90 30 C95 35 93 45 85 50 C75 56 60 55 50 50 C40 45 35 35 30 25 C25 15 35 10 50 20 Z" fill="#fff"/>
+                    <path class="dove-wing" d="M55 35 C70 30 85 35 90 45 C88 40 75 32 55 35 Z" fill="#e8d5b7"/>
+                    <circle cx="22" cy="62" r="2" fill="#333"/>
+                </svg>
+            </div>
+            <h1 class="hero-title">The Seven Gifts of the Holy Spirit</h1>
+            <p class="hero-subtitle">Divine Graces Given to Believers</p>
+            <p class="hero-verse">"But the Advocate, the Holy Spirit, whom the Father will send in my name, will teach you all things..." — John 14:26</p>
+            <a href="#gifts" class="cta-button">Explore the Gifts</a>
+            
+            <!-- Daily Verse Card -->
+            <div class="daily-verse-card" id="dailyVerseCard">
+                <div class="daily-verse-header">
+                    <span class="daily-verse-icon">📜</span>
+                    <span class="daily-verse-title">Verse of the Day</span>
+                    <button class="daily-verse-refresh" onclick="refreshDailyVerse()" title="Get new verse">🔄</button>
+                </div>
+                <p class="daily-verse-text" id="dailyVerseText">"The fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control."</p>
+                <p class="daily-verse-reference" id="dailyVerseRef">Galatians 5:22-23</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="hero-decoration hero-decoration-left">
+            <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L60 30 L50 25 L40 30 Z" fill="rgba(201,162,39,0.3)"/>
+                <ellipse cx="50" cy="50" rx="15" ry="25" fill="rgba(201,162,39,0.2)"/>
+                <path d="M50 75 L55 90 L50 85 L45 90 Z" fill="rgba(201,162,39,0.2)"/>
+            </svg>
+        </div>
+        <div class="hero-decoration hero-decoration-right">
+            <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L60 30 L50 25 L40 30 Z" fill="rgba(201,162,39,0.3)"/>
+                <ellipse cx="50" cy="50" rx="15" ry="25" fill="rgba(201,162,39,0.2)"/>
+                <path d="M50 75 L55 90 L50 85 L45 90 Z" fill="rgba(201,162,39,0.2)"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="nav-logo-icon">✝</span>
+                Holy Spirit Gifts
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#gifts" class="nav-link">The Gifts</a></li>
+                <li><a href="#prayer" class="nav-link">Prayers</a></li>
+                <li><a href="#saints" class="nav-link">Saints</a></li>
+                <li><a href="#cultivate" class="nav-link">Cultivate</a></li>
+                <li><a href="#quiz" class="nav-link">Discover</a></li>
+                <li><a href="#reflection" class="nav-link">Reflection</a></li>
+            </ul>
+            <div class="nav-search">
+                <button class="search-btn" onclick="toggleSearch()">🔍</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search prayers, gifts, verses..." onkeyup="performSearch(this.value)">
+            <button class="search-close" onclick="toggleSearch()">×</button>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Gifts Section -->
+    <section class="gifts-section" id="gifts">
+        <div class="section-header">
+            <div class="section-icon">🔥</div>
+            <h2 class="section-title">The Sevenfold Gifts</h2>
+            <p class="section-subtitle">According to Isaiah 11:2-3 and the Catechism of the Catholic Church</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="gifts-grid">
+            <!-- Wisdom -->
+            <div class="gift-card" data-gift="wisdom">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">👑</div>
+                        <h3 class="gift-name">Wisdom</h3>
+                        <p class="gift-latin">Sapientia</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift I</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">👑</div>
+                            <h3>Wisdom</h3>
+                        </div>
+                        <p class="gift-latin">Sapientia</p>
+                        <p class="gift-description">The first and highest gift of the Holy Spirit. It enables us to see all things in relation to God and to judge all things according to God's perspective.</p>
+                        <div class="gift-bible-ref">"The fear of the Lord is the beginning of wisdom" — Proverbs 9:10</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Thomas Aquinas</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Discernment</li>
+                            <li>Deep understanding</li>
+                            <li>God-centered perspective</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('wisdom', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('wisdom', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Understanding -->
+            <div class="gift-card" data-gift="understanding">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">💡</div>
+                        <h3 class="gift-name">Understanding</h3>
+                        <p class="gift-latin">Intellectus</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift II</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">💡</div>
+                            <h3>Understanding</h3>
+                        </div>
+                        <p class="gift-latin">Intellectus</p>
+                        <p class="gift-description">Helps us comprehend the truths of our faith and apply them to our daily life. It gives insight into the meaning of Scripture and Church teachings.</p>
+                        <div class="gift-bible-ref">"He who teaches man knowledge" — Isaiah 28:26</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Augustine</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Comprehension of faith</li>
+                            <li>Insight into Scripture</li>
+                            <li>Application of truth</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('understanding', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('understanding', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Counsel -->
+            <div class="gift-card" data-gift="counsel">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">🗺️</div>
+                        <h3 class="gift-name">Counsel</h3>
+                        <p class="gift-latin">Consilium</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift III</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">🗺️</div>
+                            <h3>Counsel</h3>
+                        </div>
+                        <p class="gift-latin">Consilium</p>
+                        <p class="gift-description">Provides supernatural guidance in difficult moral situations. It helps us know what God wants us to do and gives us the courage to follow His will.</p>
+                        <div class="gift-bible-ref">"I will guide you in the way of wisdom" — Proverbs 4:11</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Joseph</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Moral guidance</li>
+                            <li>Right judgment</li>
+                            <li>Direction in decisions</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('counsel', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('counsel', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fortitude -->
+            <div class="gift-card" data-gift="fortitude">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">⚔️</div>
+                        <h3 class="gift-name">Fortitude</h3>
+                        <p class="gift-latin">Fortitudo</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift IV</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">⚔️</div>
+                            <h3>Fortitude</h3>
+                        </div>
+                        <p class="gift-latin">Fortitudo</p>
+                        <p class="gift-description">Gives us the courage to stand firm in our faith, even in persecution. It strengthens us to overcome difficulties and remain faithful to God's commands.</p>
+                        <div class="gift-bible-ref">"Be strong and courageous" — Deuteronomy 31:6</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Thomas More</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Courage in trials</li>
+                            <li>Perseverance</li>
+                            <li>Spiritual strength</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('fortitude', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('fortitude', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Knowledge -->
+            <div class="gift-card" data-gift="knowledge">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">📚</div>
+                        <h3 class="gift-name">Knowledge</h3>
+                        <p class="gift-latin">Scientia</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift V</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">📚</div>
+                            <h3>Knowledge</h3>
+                        </div>
+                        <p class="gift-latin">Scientia</p>
+                        <p class="gift-description">Enables us to understand the created world in light of divine truth. It helps us recognize the relationship between God and His creation.</p>
+                        <div class="gift-bible-ref">"The Lord gives knowledge" — 2 Samuel 22:36</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Albert the Great</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Understanding creation</li>
+                            <li>Divine truth</li>
+                            <li>Spiritual insight</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('knowledge', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('knowledge', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Piety -->
+            <div class="gift-card" data-gift="piety">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">🕊️</div>
+                        <h3 class="gift-name">Piety</h3>
+                        <p class="gift-latin">Pietas</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift VI</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">🕊️</div>
+                            <h3>Piety</h3>
+                        </div>
+                        <p class="gift-latin">Pietas</p>
+                        <p class="gift-description">Fills us with reverence for God and a filial love for Him as our Father. It moves us to worship God and serve Him with love and devotion.</p>
+                        <div class="gift-bible-ref">"Serve the Lord with fear" — Psalm 2:11</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. Francis of Assisi</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Reverence</li>
+                            <li>Filial love</li>
+                            <li>Devoted worship</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('piety', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('piety', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fear of the Lord -->
+            <div class="gift-card" data-gift="fear">
+                <div class="gift-card-inner">
+                    <div class="gift-card-front">
+                        <div class="gift-glow"></div>
+                        <div class="gift-icon">✨</div>
+                        <h3 class="gift-name">Fear of the Lord</h3>
+                        <p class="gift-latin">Timor Domini</p>
+                        <span class="flip-hint">Click to explore</span>
+                        <div class="gift-badge">Gift VII</div>
+                    </div>
+                    <div class="gift-card-back">
+                        <div class="gift-card-back-header">
+                            <div class="gift-icon-small">✨</div>
+                            <h3>Fear of the Lord</h3>
+                        </div>
+                        <p class="gift-latin">Timor Domini</p>
+                        <p class="gift-description">Not a servile fear, but a joyful awe before God's greatness. It keeps us from sin and motivates us to live holy lives in His presence.</p>
+                        <div class="gift-bible-ref">"The fear of the Lord is the beginning of knowledge" — Proverbs 1:7</div>
+                        <div class="gift-saint">
+                            <span class="saint-label">Featured Saint:</span>
+                            <span class="saint-name">St. John Vianney</span>
+                        </div>
+                        <ul class="gift-fruits">
+                            <li>Holy awe</li>
+                            <li>Protection from sin</li>
+                            <li>Spiritual reverence</li>
+                        </ul>
+                        <div class="gift-actions">
+                            <button class="gift-action-btn" onclick="shareGift('fear', event)" title="Share">📤</button>
+                            <button class="gift-action-btn" onclick="printGift('fear', event)" title="Print">🖨️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saints Section -->
+    <section class="saints-section" id="saints">
+        <div class="section-header">
+            <div class="section-icon">👼</div>
+            <h2 class="section-title">Saints Who Exemplified the Gifts</h2>
+            <p class="section-subtitle">Holy men and women who lived these gifts to the fullest</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="saints-timeline">
+            <div class="saint-item" data-gift="wisdom">
+                <div class="saint-portrait">📖</div>
+                <div class="saint-content">
+                    <h3>St. Thomas Aquinas</h3>
+                    <p class="saint-dates">1225-1274</p>
+                    <p class="saint-description">The "Angel of the Schools" embodied Wisdom through his profound theological writings. His Summa Theologica remains a masterpiece of Catholic doctrine.</p>
+                    <div class="saint-gift-badge">Wisdom</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="understanding">
+                <div class="saint-portrait">🎓</div>
+                <div class="saint-content">
+                    <h3>St. Augustine</h3>
+                    <p class="saint-dates">354-430</p>
+                    <p class="saint-description">His "Confessions" show deep Understanding of human nature and divine grace. He transformed Western theology with his insight into God's love.</p>
+                    <div class="saint-gift-badge">Understanding</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="counsel">
+                <div class="saint-portrait">🏠</div>
+                <div class="saint-content">
+                    <h3>St. Joseph</h3>
+                    <p class="saint-dates">1st Century</p>
+                    <p class="saint-description">The earthly father of Jesus received divine Counsel in dreams, guiding him to protect the Holy Family through difficult circumstances.</p>
+                    <div class="saint-gift-badge">Counsel</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="fortitude">
+                <div class="saint-portrait">⚖️</div>
+                <div class="saint-content">
+                    <h3>St. Thomas More</h3>
+                    <p class="saint-dates">1478-1535</p>
+                    <p class="saint-description">Martyr for the Faith, he showed Fortitude by choosing death over compromising his conscience against Henry VIII's demands.</p>
+                    <div class="saint-gift-badge">Fortitude</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="knowledge">
+                <div class="saint-portrait">🔬</div>
+                <div class="saint-content">
+                    <h3>St. Albert the Great</h3>
+                    <p class="saint-dates">1206-1280</p>
+                    <p class="saint-description">The "Universal Doctor" had remarkable Knowledge of both natural sciences and theology, being a mentor to Thomas Aquinas.</p>
+                    <div class="saint-gift-badge">Knowledge</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="piety">
+                <div class="saint-portrait">🕊️</div>
+                <div class="saint-content">
+                    <h3>St. Francis of Assisi</h3>
+                    <p class="saint-dates">1181-1226</p>
+                    <p class="saint-description">His life of radical Piety and love for all creation transformed the Church and inspired millions to follow Christ's poverty.</p>
+                    <div class="saint-gift-badge">Piety</div>
+                </div>
+            </div>
+            
+            <div class="saint-item" data-gift="fear">
+                <div class="saint-portrait">⛪</div>
+                <div class="saint-content">
+                    <h3>St. John Vianney</h3>
+                    <p class="saint-dates">1786-1859</p>
+                    <p class="saint-description">The Curé of Ars embodied holy Fear of the Lord, spending 17 hours daily in prayer and hearing confessions.</p>
+                    <div class="saint-gift-badge">Fear of the Lord</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultivate Section -->
+    <section class="cultivate-section" id="cultivate">
+        <div class="section-header">
+            <div class="section-icon">🌱</div>
+            <h2 class="section-title">Cultivate Your Gifts</h2>
+            <p class="section-subtitle">Practical ways to grow in each divine gift</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="cultivate-grid">
+            <div class="cultivate-card">
+                <div class="cultivate-icon">📿</div>
+                <h3>Wisdom</h3>
+                <ul class="cultivate-tips">
+                    <li>Pray daily for divine guidance</li>
+                    <li>Read and meditate on Scripture</li>
+                    <li>Seek counsel from spiritual directors</li>
+                    <li>Practice discernment in decisions</li>
+                    <li>Study the teachings of the Church</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">📖</div>
+                <h3>Understanding</h3>
+                <ul class="cultivate-tips">
+                    <li>Study the Catechism regularly</li>
+                    <li>Reflect on Sunday's Gospel</li>
+                    <li>Ask questions about your faith</li>
+                    <li>Discuss theology with others</li>
+                    <li>Read spiritual classics</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">🗣️</div>
+                <h3>Counsel</h3>
+                <ul class="cultivate-tips">
+                    <li>Develop a spiritual director relationship</li>
+                    <li>Join a faith formation group</li>
+                    <li>Pray for guidance before decisions</li>
+                    <li>Listen to wise counsel</li>
+                    <li>Trust your informed conscience</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">💪</div>
+                <h3>Fortitude</h3>
+                <ul class="cultivate-tips">
+                    <li>Pray for courage in difficulties</li>
+                    <li>Face your fears with faith</li>
+                    <li>Support others in trials</li>
+                    <li>Practice penance and self-discipline</li>
+                    <li>Stand up for moral truths</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">🌍</div>
+                <h3>Knowledge</h3>
+                <ul class="cultivate-tips">
+                    <li>Study God's creation in nature</li>
+                    <li>Learn about Catholic tradition</li>
+                    <li>Appreciate science and faith</li>
+                    <li>See God in all things</li>
+                    <li>Continue lifelong learning</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">🙏</div>
+                <h3>Piety</h3>
+                <ul class="cultivate-tips">
+                    <li>Pray the Liturgy of the Hours</li>
+                    <li>Receive sacraments frequently</li>
+                    <li>Practice reverence in worship</li>
+                    <li>Serve the poor generously</li>
+                    <li>Cultivate family prayer</li>
+                </ul>
+            </div>
+            
+            <div class="cultivate-card">
+                <div class="cultivate-icon">敬畏</div>
+                <h3>Fear of the Lord</h3>
+                <ul class="cultivate-tips">
+                    <li>Maintain awareness of God's presence</li>
+                    <li>Practice frequent confession</li>
+                    <li>Meditate on Last Things</li>
+                    <li>Avoid near occasions of sin</li>
+                    <li>Live with eternal perspective</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Section -->
+    <section class="prayer-section" id="prayer">
+        <div class="section-header">
+            <div class="section-icon">✝</div>
+            <h2 class="section-title">Prayers to the Holy Spirit</h2>
+            <p class="section-subtitle">Invocate the Divine Gifts in your life</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="prayer-controls">
+            <button class="prayer-filter-btn active" onclick="filterPrayers('all')">All Prayers</button>
+            <button class="prayer-filter-btn" onclick="filterPrayers('short')">Short</button>
+            <button class="prayer-filter-btn" onclick="filterPrayers('traditional')">Traditional</button>
+            <button class="prayer-filter-btn" onclick="filterPrayers('favorites')">⭐ Favorites</button>
+        </div>
+        
+        <div class="prayers-container">
+            <!-- Come, Holy Spirit -->
+            <div class="prayer-card" data-category="short">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Come, Holy Spirit</h3>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    Come, Holy Spirit, fill my heart with Your divine gifts.<br><br>
+                    Grant me the gift of <strong>Wisdom</strong> to see all things in Your light.<br>
+                    Bestow upon me <strong>Understanding</strong> to know Your truth.<br>
+                    Give me <strong>Counsel</strong> to guide my steps aright.<br>
+                    Strengthen me with <strong>Fortitude</strong> in every trial.<br>
+                    Grant me <strong>Knowledge</strong> of Your creation.<br>
+                    Fill me with <strong>Piety</strong> to worship You worthily.<br>
+                    Keep me in <strong>Fear</strong> of Your holy name.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Prayer for the Seven Gifts -->
+            <div class="prayer-card" data-category="traditional">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Prayer for the Seven Gifts</h3>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    O God, who by the light of the Holy Spirit,<br>
+                    did instruct the hearts of the faithful,<br>
+                    grant that by the same Holy Spirit<br>
+                    we may be truly wise and ever rejoice in His consolations.<br><br>
+                    Through Christ our Lord.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Novena to the Holy Spirit -->
+            <div class="prayer-card" data-category="traditional">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Novena to the Holy Spirit</h3>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    Holy Spirit, divine Consoler,<br>
+                    I adore You as my true God.<br>
+                    I believe in You because You are the Divine Physician,<br>
+                    healer of my soul.<br><br>
+                    Come and cleanse me, heal my wounds, sin and suffering.<br>
+                    You are my forgiveness, my hope, my peace, my light.<br>
+                    Teach me to pray aright.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Veni Creator Spiritus -->
+            <div class="prayer-card" data-category="traditional">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Veni Creator Spiritus</h3>
+                    <span class="prayer-latin">Latin Traditional</span>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    <em>Come, Creator Spirit,</em><br><br>
+                    Come, Holy Spirit, Creator blest,<br>
+                    And in our souls take up Thy rest;<br>
+                    Come with Thy grace and heavenly aid<br>
+                    To fill the hearts which Thou hast made.<br><br>
+                    Great Paraclete! to Thee we cry,<br>
+                    O highest gift of God most high!<br>
+                    O fount of life! O fire of love!<br>
+                    And sweet anointing from above!<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Anima Christi -->
+            <div class="prayer-card" data-category="short">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Anima Christi</h3>
+                    <span class="prayer-latin">Soul of Christ</span>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    Soul of Christ, sanctify me.<br>
+                    Body of Christ, save me.<br>
+                    Blood of Christ, inebriate me.<br>
+                    Water from the side of Christ, wash me.<br>
+                    Passion of Christ, strengthen me.<br>
+                    O good Jesus, hear me.<br>
+                    Within Thy wounds, hide me.<br>
+                    From departing, keep me.<br>
+                    From the enemy, defend me.<br>
+                    At the hour of death, call me.<br>
+                    And bid me come to Thee,<br>
+                    That with Thy saints I may praise Thee<br>
+                    Forever and ever.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Prayer to the Holy Spirit -->
+            <div class="prayer-card" data-category="short">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Holy Spirit, My Comforter</h3>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    Holy Spirit, my Comforter,<br>
+                    I ask You to fill me with Your presence.<br>
+                    You are the gift of God,<br>
+                    The source of all good gifts.<br><br>
+                    Grant me the gifts of the Spirit:<br>
+                    Wisdom to know God's will,<br>
+                    Understanding to comprehend His truth,<br>
+                    Counsel to make right choices,<br>
+                    Fortitude to persevere in faith,<br>
+                    Knowledge to grow in grace,<br>
+                    Piety to love and serve,<br>
+                    And holy Fear to remain close to God.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Sequence for Pentecost -->
+            <div class="prayer-card" data-category="traditional">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Sequence for Pentecost</h3>
+                    <span class="prayer-latin">Veni, Sancte Spiritus</span>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    <em>Come, Holy Spirit, come!</em><br><br>
+                    And from Thy celestial home<br>
+                    Shed a ray of light divine!<br><br>
+                    Come, Father of the poor!<br>
+                    Come, Source of all our store!<br>
+                    Come, within our bosoms shine!<br><br>
+                    Thou of comforters the best,<br>
+                    Thou the soul's most welcome guest,<br>
+                    Sweet refreshment here below!<br><br>
+                    In our labor, rest most sweet,<br>
+                    Grateful coolness in the heat,<br>
+                    Solace in the midst of woe!<br><br>
+                    O most blessed Light divine,<br>
+                    Fill our inmost hearts today;<br>
+                    Keep our natures free from sin,<br>
+                    Give us grace that we may win<br>
+                    Everlasting life one day.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+
+            <!-- Daily Prayer for the Gifts -->
+            <div class="prayer-card" data-category="short">
+                <div class="prayer-header">
+                    <h3 class="prayer-title">Daily Prayer for the Gifts</h3>
+                    <div class="prayer-actions">
+                        <button class="prayer-action" onclick="speakPrayer(this)" title="Listen">🔊</button>
+                        <button class="prayer-action" onclick="sharePrayer(this)" title="Share">📤</button>
+                        <button class="prayer-action" onclick="printPrayer(this)" title="Print">🖨️</button>
+                    </div>
+                </div>
+                <p class="prayer-text">
+                    Holy Spirit, today I ask for the gift of<br>
+                    <strong>Wisdom</strong> — to see all things as You see them.<br><br>
+                    Give me <strong>Understanding</strong> to know Your truth.<br><br>
+                    Grant me <strong>Counsel</strong> to follow Your path.<br><br>
+                    Strengthen me with <strong>Fortitude</strong> for the journey.<br><br>
+                    Bless me with <strong>Knowledge</strong> of Your love.<br><br>
+                    Fill me with <strong>Piety</strong> to worship You worthily.<br><br>
+                    Keep me in <strong>Fear</strong> — holy reverence for Your name.<br><br>
+                    Amen.
+                </p>
+                <button class="prayer-button" onclick="toggleFavorite(this)">Save to Favorites</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section" id="quiz">
+        <div class="section-header">
+            <div class="section-icon">🎯</div>
+            <h2 class="section-title">Discover Your Gift</h2>
+            <p class="section-subtitle">Answer these questions to reflect on which gift may be strongest in your life</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="quiz-intro" id="quizIntro">
+                <div class="quiz-icon">🕊️</div>
+                <p>This reflection quiz will help you consider how the Holy Spirit may be working in your life. Prayerfully read each question and select the response that resonates most with you.</p>
+                <button class="quiz-start-btn" onclick="startQuiz()">Begin Reflection</button>
+            </div>
+
+            <div class="quiz-questions" id="quizQuestions" style="display: none;">
+                <!-- Questions will be dynamically inserted -->
+            </div>
+
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <h3>Your Reflection Result</h3>
+                <div id="resultContent"></div>
+                <button class="quiz-restart-btn" onclick="restartQuiz()">Reflect Again</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflection Section -->
+    <section class="reflection-section" id="reflection">
+        <div class="section-header">
+            <div class="section-icon">📝</div>
+            <h2 class="section-title">Personal Reflection</h2>
+            <p class="section-subtitle">Journal your spiritual journey</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="reflection-container">
+            <div class="reflection-prompts">
+                <h3>Reflection Questions</h3>
+                <ul>
+                    <li onclick="showReflectionPrompt('Which gift do I feel most drawn to and why?')">Which gift do I feel most drawn to and why?</li>
+                    <li onclick="showReflectionPrompt('In what areas of my life do I most need this gift?')">In what areas of my life do I most need this gift?</li>
+                    <li onclick="showReflectionPrompt('How can I cultivate this gift in my daily life?')">How can I cultivate this gift in my daily life?</li>
+                    <li onclick="showReflectionPrompt('Who in my life exemplifies this gift?')">Who in my life exemplifies this gift?</li>
+                    <li onclick="showReflectionPrompt('When have I felt the Holy Spirit guiding my decisions?')">When have I felt the Holy Spirit guiding my decisions?</li>
+                    <li onclick="showReflectionPrompt('What challenges am I facing that require these gifts?')">What challenges am I facing that require these gifts?</li>
+                    <li onclick="showReflectionPrompt('How has God shown me His love through these gifts?')">How has God shown me His love through these gifts?</li>
+                    <li onclick="showReflectionPrompt('What spiritual practices help me grow in these gifts?')">What spiritual practices help me grow in these gifts?</li>
+                    <li onclick="showReflectionPrompt('Who can I ask to hold me accountable in growing these gifts?')">Who can I ask to hold me accountable in growing these gifts?</li>
+                    <li onclick="showReflectionPrompt('What would my life look like if I fully embraced these gifts?')">What would my life look like if I fully embraced these gifts?</li>
+                </ul>
+            </div>
+            
+            <div class="reflection-journal">
+                <h3>Your Reflections</h3>
+                <textarea id="journalEntry" placeholder="Write your reflections here...&#10;&#10;Consider how the Holy Spirit is calling you to grow in these divine gifts."></textarea>
+                <div class="journal-actions">
+                    <button class="save-btn" onclick="saveJournal()">Save Entry</button>
+                    <button class="clear-btn" onclick="clearJournal()">Clear</button>
+                    <button class="export-btn" onclick="exportJournal()">Export</button>
+                </div>
+                <p class="journal-note">Your reflections are saved locally in your browser.</p>
+                
+                <!-- Journal History -->
+                <div class="journal-history" id="journalHistory">
+                    <h4>Previous Entries</h4>
+                    <div class="history-list" id="historyList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fruits of the Holy Spirit Section -->
+    <section class="fruits-section" id="fruits">
+        <div class="section-header">
+            <div class="section-icon">🍇</div>
+            <h2 class="section-title">The Twelve Fruits of the Holy Spirit</h2>
+            <p class="section-subtitle">"But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control." — Galatians 5:22-23</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="fruits-grid">
+            <div class="fruit-card">
+                <div class="fruit-icon">💕</div>
+                <h3 class="fruit-name">Love</h3>
+                <p class="fruit-latin">Caritas</p>
+                <p class="fruit-description">The greatest of all virtues, love is the selfless, unconditional care for others that reflects God's own love for humanity.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">😊</div>
+                <h3 class="fruit-name">Joy</h3>
+                <p class="fruit-latin">Gaudium</p>
+                <p class="fruit-description">A deep, abiding sense of happiness that comes from knowing and being united with God, regardless of external circumstances.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">☮️</div>
+                <h3 class="fruit-name">Peace</h3>
+                <p class="fruit-latin">Pax</p>
+                <p class="fruit-description">The tranquility of soul that comes from being in right relationship with God, others, and ourselves.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">⏳</div>
+                <h3 class="fruit-name">Patience</h3>
+                <p class="fruit-latin">Patientia</p>
+                <p class="fruit-description">The ability to endure difficulties and delays without becoming upset, trusting in God's timing.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">🤝</div>
+                <h3 class="fruit-name">Kindness</h3>
+                <p class="fruit-latin">Benignitas</p>
+                <p class="fruit-description">The generous inclination to do good to others, showing tenderness and consideration in our interactions.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">🌟</div>
+                <h3 class="fruit-name">Goodness</h3>
+                <p class="fruit-latin">Bonitas</p>
+                <p class="fruit-description">The moral excellence and uprightness in character that flows from a relationship with God.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">🤲</div>
+                <h3 class="fruit-name">Faithfulness</h3>
+                <p class="fruit-latin">Fidelitas</p>
+                <p class="fruit-description">Loyalty and reliability in keeping our commitments and promises, especially to God and others.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">🕊️</div>
+                <h3 class="fruit-name">Gentleness</h3>
+                <p class="fruit-latin">Modestia</p>
+                <p class="fruit-description">The virtue of being mild-mannered and patient, showing self-control and consideration for others.</p>
+            </div>
+            
+            <div class="fruit-card">
+                <div class="fruit-icon">🎯</div>
+                <h3 class="fruit-name">Self-Control</h3>
+                <p class="fruit-latin">Temperantia</p>
+                <p class="fruit-description">The ability to govern and restrain our desires and passions, living according to God's will.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-ornament">✦ ✦ ✦</div>
+            <p class="footer-verse">"But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control." — Galatians 5:22-23</p>
+            <p class="footer-text">Created with reverence for the Holy Spirit | Based on Catholic Teaching</p>
+            <div class="footer-links">
+                <a href="#gifts">The Gifts</a> | 
+                <a href="#prayer">Prayers</a> | 
+                <a href="#saints">Saints</a> | 
+                <a href="#quiz">Discover</a> | 
+                <a href="#reflection">Reflection</a>
+            </div>
+            <p class="footer-copyright">© 2026 Gifts of the Holy Spirit Project</p>
+            <div class="footer-prayer">
+                <p>Come, Holy Spirit, fill our hearts and kindle in us the fire of Your love!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Print Modal -->
+    <div class="print-modal" id="printModal">
+        <div class="print-modal-content">
+            <button class="print-modal-close" onclick="closePrintModal()">×</button>
+            <div id="printContent"></div>
+            <button class="print-confirm-btn" onclick="confirmPrint()">Print</button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
